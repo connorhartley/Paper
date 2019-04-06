@@ -1,0 +1,38 @@
+From c71e1ba34709625e5d18d5eb3ab056d79243048e Mon Sep 17 00:00:00 2001
+From: connorhartley <vectrixu+gh@gmail.com>
+Date: Fri, 5 Apr 2019 15:16:30 +1300
+Subject: [PATCH] Allow entities to ignore activation and tracking range
+
+
+diff --git a/src/main/java/org/bukkit/entity/Entity.java b/src/main/java/org/bukkit/entity/Entity.java
+index f554e8ba..e04033e1 100644
+--- a/src/main/java/org/bukkit/entity/Entity.java
++++ b/src/main/java/org/bukkit/entity/Entity.java
+@@ -539,4 +539,24 @@ public interface Entity extends Metadatable, CommandSender, Nameable {
+      */
+     void setNoSave(boolean noSave);
+     // Paper end
++
++    // Paper start
++    /**
++     * Sets whether this entity ignores the activation and
++     * tracking range set by the server configuration in
++     * the world.
++     *
++     * @param ignore whether to ignore tracking and activation range in the worlds
++     */
++    void setIgnoreVisibilityRange(boolean ignore);
++
++    /**
++     * Returns whether this entity ignores the activation
++     * and tracking range set by the server configuration
++     * in the world.
++     *
++     * @return whether to ignore tracking and activation range in the world
++     */
++    boolean ignoreVisibilityRange();
++    // Paper end
+ }
+-- 
+2.15.1.windows.2
+
