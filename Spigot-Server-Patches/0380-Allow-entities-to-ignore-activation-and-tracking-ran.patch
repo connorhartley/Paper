@@ -1,4 +1,4 @@
-From b9a61f87436fe2dcb5899a24bf272b32f9859ca2 Mon Sep 17 00:00:00 2001
+From f555b73e4e999f6f531971a2fe69d4946086b99c Mon Sep 17 00:00:00 2001
 From: connorhartley <vectrixu+gh@gmail.com>
 Date: Fri, 5 Apr 2019 15:17:00 +1300
 Subject: [PATCH] Allow entities to ignore activation and tracking range
@@ -31,18 +31,6 @@ index efc4c79ab..fd77fa8f7 100644
      }
  
      private boolean e(EntityPlayer entityplayer) {
-diff --git a/src/main/java/net/minecraft/server/World.java b/src/main/java/net/minecraft/server/World.java
-index bc231c7f2..1169c8eca 100644
---- a/src/main/java/net/minecraft/server/World.java
-+++ b/src/main/java/net/minecraft/server/World.java
-@@ -1117,6 +1117,7 @@ public abstract class World implements IBlockAccess {
- 
-     public boolean addEntity(Entity entity, SpawnReason spawnReason) { // Changed signature, added SpawnReason
-         org.spigotmc.AsyncCatcher.catchOp( "entity add"); // Spigot
-+        System.out.println("addEntity World");
-         if (entity == null) return false;
-         if (entity.valid) { MinecraftServer.LOGGER.error("Attempted Double World add on " + entity, new Throwable()); return true; } // Paper
- 
 diff --git a/src/main/java/org/bukkit/craftbukkit/entity/CraftEntity.java b/src/main/java/org/bukkit/craftbukkit/entity/CraftEntity.java
 index a695a16ff..461129e7c 100644
 --- a/src/main/java/org/bukkit/craftbukkit/entity/CraftEntity.java
